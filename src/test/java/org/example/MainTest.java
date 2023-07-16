@@ -10,6 +10,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MainTest {
 
     public final static double EPS = 1e-3;
+    double start = 0.8;
+    double end = 2;
+    double step = 0.005;
     Main main;
 
     @BeforeEach
@@ -33,10 +36,6 @@ public class MainTest {
     @Test
     @DisplayName("count steps in range [`start`, `end`] with the step value `step`.")
     void testSteps() {
-        double start = 0.8;
-        double end = 2;
-        double step = 0.005;
-
         int expected = 240;
         int actual = main.countSteps(start, end, step);
 
@@ -47,10 +46,6 @@ public class MainTest {
     @MethodSource("org.example.TestDataProvider#testXData")
     @DisplayName("test x value under the element number of the array in the given range, with the given step")
     void testX(int elementNum, double expectedX) {
-        double start = 0.8;
-        double end = 2;
-        double step = 0.005;
-
         double actualX = main.getArrayOfXinRange(start, end, step)[elementNum];
 
         assertThat(actualX).isEqualTo(expectedX, Offset.offset(EPS));
@@ -60,10 +55,6 @@ public class MainTest {
     @MethodSource("org.example.TestDataProvider#testYData")
     @DisplayName("test y value under the element number of the array in the given range, with the given step")
     void testY(int elementNum, double expectedY) {
-        double start = 0.8;
-        double end = 2;
-        double step = 0.005;
-
         double actualY = main.getArrayOfYinRange(start, end, step)[elementNum];
         assertThat(actualY).isEqualTo(expectedY, Offset.offset(EPS));
     }
@@ -71,10 +62,6 @@ public class MainTest {
     @Test
     @DisplayName("find max value of the array in the given range, with the given step")
     void findMax() {
-        double start = 0.8;
-        double end = 2;
-        double step = 0.005;
-
         double actualMaxValue = main.findMaxValueInRange(start, end, step);
         double expectedMaxValue = 16.49638;
 
@@ -84,10 +71,6 @@ public class MainTest {
     @Test
     @DisplayName("find min value of the array in the given range, with the given step")
     void findMin() {
-        double start = 0.8;
-        double end = 2;
-        double step = 0.005;
-
         double actualMinValue = main.findMinValueInRange(start, end, step);
         double expectedMinValue = -8.92688;
 
@@ -97,10 +80,6 @@ public class MainTest {
     @Test
     @DisplayName("find average value of the array in the given range, with the given step")
     void findAverage() {
-        double start = 0.8;
-        double end = 2;
-        double step = 0.005;
-
         double actualAverageValue = main.findAverageValueInRange(start, end, step);
         double expectedAverageValue = 0.27934;
 
@@ -110,10 +89,6 @@ public class MainTest {
     @Test
     @DisplayName("find sum of the array in the given range, with the given step")
     void findSum() {
-        double start = 0.8;
-        double end = 2;
-        double step = 0.005;
-
         double actualSum = main.findSumInRange(start, end, step);
         double expectedSum = 67.32209;
 
